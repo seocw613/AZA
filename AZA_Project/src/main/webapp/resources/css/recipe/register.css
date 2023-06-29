@@ -1,0 +1,172 @@
+#pageTitle{
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 44px;
+    width: 100%;
+    text-align: center;
+    margin-top:20px;
+}
+#insertContainer{
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+/* title */
+#title{
+    width: 690px;
+    height: 35px;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+}
+
+/* checkAnimal */
+#checkAnimal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: max-content;
+    height: 40px;
+
+}
+#checkAnimal div{
+	display: flex;
+	align-items: center;
+}
+.animal{
+    width: 99px;
+    height: 29px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    
+    color: var(--black);
+}
+/* checkbox */
+input[id="animalAll"], input[id="animalDog"],input[id="animalCat"],input[id="animalElse"]{
+    box-sizing: border-box;
+    
+    width: 15px;
+    height: 15px;
+    
+    background: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    margin-bottom: 0;
+
+}
+.animal, label{
+    font-size: 20px;
+}
+label{
+	margin-left: 5px;
+}
+#material{
+    font-size: 20px;
+    width: 1200px;
+    height: 176px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+ 
+}
+#contentList{
+    width: 100%;
+}
+.contentNum{
+	font-size: 25px;
+	color: var(--black);
+	width: 50px;
+	text-align: center;
+	height: max-content;
+	vertical-align: top;
+	display: inline-block;
+	margin-left: 20px;	
+}
+#content{
+    width: 100%;
+    height: 61px;
+    font-size: 35px;
+    border-bottom: 1px solid var(--lightGray);
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.contentOne{
+    height: 543px;
+    width: 100%;
+    margin-top:20px;
+}
+.contentOne>ol>li{
+    font-size: 40px;
+}
+.insertContent{
+    width: 1080px;
+    height: 200px;
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+    background: white;
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+}
+.fileBtn, #photoWrapper{
+    width: 1200px;
+    height: 222px;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--lightGray);
+    position: relative;
+}
+.insertContentBtn{
+    width: 43px;
+    height: 81px;
+    margin-right: 20px;
+    font-size: 70px;
+    font-weight: 400;
+    color: var(--gray);
+    background-color: transparent;
+    border:transparent;
+    float: right;
+    cursor: pointer;
+}
+.delContentBtn{
+    width: 41.32px;
+    height: 81px;
+    font-size: 70px;
+    color: var(--gray);
+    background-color: transparent;
+    border: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    cursor: pointer;
+}
+#btnGroup{
+    width: 182px;
+    height: 40px;
+    margin: 0px auto;
+    /* border: 1px solid black; */
+    margin-top: 20px;
+    margin-bottom: 140px;
+
+}
+#insertBtn, #cancelBtn{
+    width: 78px;
+    height: 40px;
+    background-color: var(--yellow);
+    color: var(--black);
+    font-size: 20px;
+    border: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#cancelBtn{
+    float: right;
+}

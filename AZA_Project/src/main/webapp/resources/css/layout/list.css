@@ -1,0 +1,171 @@
+/* 검색창 */
+#searchContainer{
+    position: relative;
+    width: 450px;
+    height: 40px;
+    margin: 0 auto;
+}
+#searchContainer form{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+    display: flex;
+}
+#searchContainer form select,
+#searchContainer form input,
+#searchContainer form button{
+    font-size: 20px;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+}
+#searchContainer form select{
+    width: 100px;
+    height: 100%;
+    padding: 0 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#searchContainer form input{
+    width: 350px;
+    height: 100%;
+    padding: 0 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 40px;
+}
+#searchContainer form button{
+    position: absolute;
+    display: flex;
+    bottom: 50%;
+    transform: translateY(50%);
+    right: 10px;    
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 필터 */
+/* 동물, 게시글 수, 정렬 기준 선택 */
+#filterContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 20px 0;
+}
+#filterContainer .left{}
+#filterContainer .right{
+    display: flex;
+}
+
+/* 동물 선택 */
+#filterContainer #animalFilterContainer{}
+#filterContainer #animalFilterContainer ul{
+    display: flex;
+}
+#filterContainer #animalFilterContainer ul li{
+    margin-right: 20px;
+    position: relative;
+}
+#filterContainer #animalFilterContainer ul li:before{
+    position: absolute;
+    right: -11px;
+    top: 3px;
+    content: "";
+    display: block;
+    width: 2px;
+    height: 16px;
+    background: var(--lightGray);
+}
+#filterContainer #animalFilterContainer ul li:last-child:before{
+    display: none;
+}
+#filterContainer #animalFilterContainer ul li a{
+    font-size: 20px;
+    color: var(--lightGray);
+}
+#filterContainer #animalFilterContainer ul li a.on{
+    color: var(--black);
+}
+
+/* 게시글 수, 정렬 기준 선택 */
+#filterContainer .right form{
+    display: flex;
+    width: 100px; height: 30px;
+    margin-left: 20px;
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+}
+#filterContainer .right form select{
+    width: 100px;
+    padding: 0 5px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* 페이지네이션 */
+#paginationArea{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    flex-direction: row-reverse;
+    position: relative;
+}
+#pagination{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#paginationArea #pagination a{
+    margin: 0 5px;
+    color: var(--lightGray);
+}
+#paginationArea #pagination a.on{
+    color: var(--black);
+}
+#paginationArea #insertBtn{
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    background: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    border-radius: 50%;
+}
+
+/* 글쓰기 말풍선 */
+#arrow_box{
+	position: absolute;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	width: 70px;
+	height: 40px;
+	padding: 10px;
+	bottom: -35px;
+	right: 5px;
+	-webkit-border-radius: 10px;
+	font-size: 15px;
+	border-color: transparent;
+	display: none;
+}
+#arrow_box:after{
+	border-top: 0px solid transpareng;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid rgba(0,0,0,0.5);
+	content: "";
+	position: absolute;
+	bottom: 40px;
+	right: 25px;
+}
+#insertBtn:hover + #arrow_box {
+	display: block;
+}

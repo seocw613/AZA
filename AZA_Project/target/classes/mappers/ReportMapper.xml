@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.ReportDAO">
+
+	<insert id="insert">
+		insert into report (type, post_no, member_id)
+		values (#{type}, #{post_no}, #{member_id});
+	</insert>
+	
+	<select id="isReport" resultType="int">
+		select count(*) from report where
+		type=#{type} and
+		post_no=#{post_no} and
+		member_id=#{member_id};
+	</select>
+	
+	<select id="reportCount" resultType="int">
+		select count(*) from report where type=#{type} and post_no=#{post_no};
+	</select>
+
+</mapper>

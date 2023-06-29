@@ -1,0 +1,11 @@
+form{
+	width: 500px;
+	margin: 0 auto;
+}
+form input{
+	text-align: center;
+}
+#description{
+	text-align: center;
+	font-size: 24px;
+}

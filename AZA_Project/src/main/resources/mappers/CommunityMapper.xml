@@ -1,0 +1,153 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.CommunityDAO">
+
+	<insert id="insert">
+		insert into community (title, writer, content)
+		values (#{title}, #{writer}, #{content});
+	</insert>
+	
+	<select id="list" resultType="CommunityVO">
+		select *, (select count(*) from good where type='C' and good.post_no=community.no) as good_count
+		from community where is_del = "N"
+		<include refid="search"></include>
+		<include refid="date"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from community where is_del = "N"
+		<include refid="search"></include>
+		<include refid="date"></include>;
+	</select>
+	
+	<select id="selectOne" resultType="CommunityVO">
+		select *, (select count(*) from good where type='C' and good.post_no=community.no) as good_count
+		from community where no=#{no};
+	</select>
+	
+	<update id="update">
+		update community set title=#{title}, content=#{content} where no=#{no};
+	</update>
+	
+	<delete id="delete">
+		delete from community where no=#{no};
+	</delete>
+	
+	<update id="readCount">
+		update community set read_count=#{read_count} where no=#{no};
+	</update>
+	
+	<select id="goodCount" resultType="int">
+		select count(*) from good where post_no=#{no};
+	</select>
+	
+	<select id="communityMyGood" resultType="CommunityVO">
+		select *,
+		(select count(*) from good
+		where type='C' and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{keyword}
+		where is_del="N" and
+		member.nick_name=community.writer;
+	</select>
+	
+	<select id="communityMyGoodCount" resultType="int">
+		select *,
+		(select count(*) from good
+		where type="C" and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{keyword}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="C" and
+		post_no=community.no and
+		member_id=#{keyword});
+	</select>
+	
+	<select id="commuitymyScrap" resultType="CommunityVO">
+		select *,
+		(select count(*) from good
+		where type='C' and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{keyword}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="C" and
+		post_no=community.no and
+		member_id=#{keyword});
+	</select>
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="type != null">
+			<trim prefix="and " prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test='type == "title".toString()'>title like concat('%',#{keyword},'%')</when>
+							<when test='type == "content".toString()'>content like concat('%',#{keyword},'%')</when>
+							<when test='type == "writer".toString()'>writer like concat('%',#{keyword},'%')</when>
+							<when test='type == "id".toString()'>member_id=#{keyword}</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<!-- 정렬 -->
+	<sql id="arrange">
+		<if test="arrange != null">
+			<trim prefix = "order by " prefixOverrides="OR">
+				<foreach collection="arrangeToArray" item="arrange">
+					<trim prefix="OR">
+						<choose>
+							<when test="arrange == 'no'.toString()">no desc</when>
+							<when test="arrange == 'read_count'.toString()">read_count desc</when>
+							<when test="arrange == 'good_count'.toString()">
+								(select count(*) from good where type='C' and good.post_no=community.no) desc
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+		<if test="arrange == null || arrange == ''">order by no desc</if>
+	</sql>
+	
+	<!-- 일간 주간 월간 -->
+	<sql id="date">
+		<if test="date != null">
+			<trim prefix="and " prefixOverrides="OR">
+				<foreach collection="dateToArray" item="date">
+					<trim prefix="OR">
+						<choose>
+							<when test='date == "day".toString()'>
+								post_date > date_sub(now(), interval 1 day)
+							</when>
+							<when test='date == "week".toString()'>
+								post_date > date_sub(now(), interval 7 day)
+							</when>
+							<when test='date == "month".toString()'>
+								post_date > date_sub(now(), interval 30 day)
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+
+</mapper>

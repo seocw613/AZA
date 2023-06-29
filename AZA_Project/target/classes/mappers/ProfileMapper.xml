@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.ProfileDAO">
+
+	<insert id="insert">
+		insert into profile (uuid, member_id, save_dir, file_name, file_size)
+			values (#{uuid}, #{member_id}, #{save_dir}, #{file_name}, #{file_size})
+	</insert>
+	
+	<select id="selectOne" resultType="pfvo">
+		select * from profile where member_id = #{member_id}
+	</select>
+	
+	<update id="update">
+		update profile set uuid = #{uuid}, save_dir = #{save_dir}, file_name = #{file_name}, file_size = #{file_size}
+			where member_id = #{member_id};
+	</update>
+</mapper>

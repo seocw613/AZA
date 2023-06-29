@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+#insertContainer .title{
+	width:60%;
+	height:35px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+#insertContainer .content {
+	width: 100%;
+	font-size: 20px;	
+	margin-bottom: 10px;
+	border-radius: 4px;
+} 
+
+.insertPassword, .checkPassword {
+	width: 204px;
+	height: 30px;
+	border-radius: 4px;
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+.Rectangle9 {
+	width:20px;
+	height:20px;
+}
+.checkLock{
+	font-size: 20px;
+	margin-bottom: 30px;
+	float : right;
+}
+
+#filesContainer{
+	margin-bottom: 30px;
+}
+#btnGroup {
+	text-align: center;	
+}
+
+#btnGroup button {
+	width: 78px;
+	height : 40px;
+	border: 0.1px solid #FAE100;
+	background-color: #FAE100;
+	border-radius: 7px;
+	font-size: 20px;
+}

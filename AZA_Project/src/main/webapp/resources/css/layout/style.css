@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'ImcreSoojin';
+    src: url('/resources/font/ImcreSoojin.ttf') format('truetype');
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'ImcreSoojin', '돋움';
+    color: var(--black);
+}
+body{
+	background-color: var(--ivory);
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+section{
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 800px;
+}
+:root{
+	--gray: #888888;
+	--lightGray: #dadada;
+	--black: #202020;
+	--yellow: #fae100;
+	--ivory: #fdf7e9;
+}

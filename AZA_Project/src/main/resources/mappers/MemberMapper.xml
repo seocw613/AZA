@@ -1,0 +1,85 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.MemberDAO">
+
+	<insert id="insert">
+		insert into member (id, pw, nick_name)
+		values (#{id}, #{pw}, #{nick_name});
+	</insert>
+	
+	<select id="selectID" resultType="mvo">
+		select * from member where id=#{id};
+	</select>
+	
+	<select id="selectNickName" resultType="mvo">
+		select * from member where nick_name=#{nick_name};
+	</select>
+
+	<select id="list" resultType="mvo">
+		select * from member where id is not null
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	
+	<update id="update">
+		update member set nick_name=#{nick_name} where id=#{id};
+	</update>
+	
+	<delete id="delete">
+		delete from member where id=#{id};
+	</delete>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from member where id is not null
+		<include refid="search"></include>;
+	</select>
+	
+	<update id="logout">
+		update member set recent_log=now() where id=#{id};
+	</update>
+	
+	<update id="changePassword">
+		update member set pw=#{type} where id=#{id};
+	</update>
+	
+	<update id="authority">
+		update member set type='M' where id=#{id};
+	</update>
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="type != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "and " prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 'id'.toString()">id like concat('%',#{keyword},'%')</when>
+							<when test="type == 'nick_name'.toString()">nick_name like concat('%',#{keyword},'%')</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<!-- 정렬 -->
+	<sql id="arrange">
+		<if test="arrange != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "order by " prefixOverrides="OR">
+				<foreach collection="arrangeToArray" item="arrange">
+					<trim prefix="OR">
+						<choose>
+							<when test="arrange == 'id'.toString()">id desc</when>
+							<when test="arrange == 'nick_name'.toString()">nick_name desc</when>
+							<when test="arrange == 'join_date'.toString()">join_date desc</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+		<if test="arrange == null || arrange == ''">order by join_date desc</if>
+	</sql>
+
+</mapper>

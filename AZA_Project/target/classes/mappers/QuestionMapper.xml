@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.aza.myapp.repository.QuestionDAO">	<!-- dao 안쓰고 repository 값 여기서 전처리 -->
+    <insert id="insert">
+		insert into question (writer, title, content, pw, is_lock)
+		values (#{writer}, #{title}, #{content}, #{pw}, #{is_lock});
+	</insert>
+	<select id="list" resultType="com.aza.myapp.domain.QuestionVO">
+		select * from question where is_del="N"	
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="totalCount" resultType="int">
+		select count(*) from question where is_del = "N"
+		<include refid="search"></include>
+		<include refid="arrange"></include>;
+	</select>
+<!-- 	<select id="selectQuestionDetail" resultType="com.aza.myapp.domain.QuestionVO">
+		select * from question where no=#{no}	
+	</select>	 -->
+	<select id="selectOne" resultType="com.aza.myapp.domain.QuestionVO">
+		select * from question where no=#{no};
+	</select>
+	<update id="update">
+		update question set writer=#{writer}, title=#{title}, content=#{content}, pw=#{pw},is_lock=#{is_lock} 
+		where no=#{no} <!-- and writer=#{member.nick_name} -->;
+	</update>	
+	<delete id="delete">
+		delete from question where no=#{no} <!-- and writer=#{member.nick_name} -->;
+	</delete>	
+	<update id="readCount">
+		update question set read_count=#{read_count} where no=#{no};
+	</update>
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="type != null">
+			<trim prefix="and " prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test='type == "title".toString()'>title like concat('%',#{keyword},'%')</when>
+							<when test='type == "content".toString()'>content like concat('%',#{keyword},'%')</when>
+							<when test='type == "writer".toString()'>writer like concat('%',#{keyword},'%')</when>
+							<when test='type == "id".toString()'>member_id=#{keyword}</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<!-- 정렬 -->
+	<sql id="arrange">
+		<if test="arrange != null">
+			<trim prefix = "order by " prefixOverrides="OR">
+				<foreach collection="arrangeToArray" item="arrange">
+					<trim prefix="OR">
+						<choose>
+							<when test="arrange == 'no'.toString()">no desc</when>
+							<when test="arrange == 'read_count'.toString()">read_count desc</when>
+							<when test="arrange == 'good_count'.toString()">
+								(select count(*) from good where type='C' and good.post_no=community.no) desc
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+		<if test="arrange == null || arrange == ''">order by no desc</if>
+	</sql>
+</mapper>

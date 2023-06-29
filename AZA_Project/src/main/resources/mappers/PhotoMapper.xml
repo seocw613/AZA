@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.PhotoDAO">
+
+	<insert id="insert">
+		insert into photo (uuid, type, post_no, save_dir, file_name, file_size)
+		values (#{uuid}, #{type}, #{post_no}, #{save_dir}, #{file_name}, #{file_size})
+	</insert>
+	
+	<select id="selectLastNo" resultType="int">
+		select max(no)+1 from <include refid="type"/>
+<!-- 		select `auto_increment` from information_schema.tables 
+		where table_schema = 'aza_db' and table_name = #{type} -->
+	</select>
+	
+	<select id="check" resultType="rvo">
+		select * from recipe
+	</select>
+	
+	<select id="checkCount" resultType="int">
+		select count(no) from <include refid="type"/>
+	</select>
+	
+	<select id="selectThumbnail" resultType="pvo">
+		select * from photo where post_no = #{post_no} and type = #{type}
+	</select>
+
+	<select id="getList" resultType="pvo">
+		select * from photo where post_no = #{post_no} and type = #{type}
+	</select>
+	
+	<delete id="delete">
+		delete from photo where uuid = #{uuid}
+	</delete>
+	
+	<delete id="deletePost">
+		delete from photo where type = #{type} and post_no = #{post_no}
+	</delete>
+
+	<sql id="type">
+		<choose>
+			<when test="type == 'C'.toString()">community</when>
+			<when test="type == 'B'.toString()">boast</when>
+			<when test="type == 'A'.toString()">accom</when>
+			<when test="type == 'F'.toString()">harmful_food</when>
+			<when test="type == 'R'.toString()">recipe</when>
+			<when test="type == 'Q'.toString()">question</when>
+			<when test="type == 'M'.toString()">meeting</when>
+			<when test="type == 'Mb'.toString()">member</when>
+		</choose>
+	</sql>
+	
+</mapper>

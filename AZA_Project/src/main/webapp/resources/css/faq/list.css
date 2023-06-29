@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+#faqContainer .pageTitle{
+	margin-top: 20px;
+	margin-bottom:20px;
+  	font-size: 38px;
+	text-align: center;
+	
+}
+
+.dom .register {
+	float : right;
+	margin-top:18px;
+	margin-right: 90px;
+}
+
+.dom .register a{
+	font-size: 25px;
+}
+
+.btns__dom{
+	border-top : 2px solid #bcbaba;
+	border-bottom : 2px solid #bcbaba;
+}
+
+.btns__dom button {
+	width: 100px;
+	height: 40px;
+    position:relative;
+    left : 100px
+}
+#btn_down, #btn_up {
+		
+}
+
+.btns__dom button span{
+	pointer-events:none;
+	font-size:20px;	     
+}
+
+.ul__dom {
+	margin-top: 10px;
+	height: 100%;
+}
+
+.ul__dom li{
+	border:1.5px solid #FAE100;
+	border-radius: 7px;
+	margin-bottom : 10px;
+}
+
+    /* 선택시 */
+    .ul__dom li.on{
+        background: var(--lightGray);
+        font-weight:bold;
+        color: var(--yellow);
+        box-shadow:inset .5rem .5rem 1rem var(--Gray);
+    }
+    
+.dom ul li {
+	position : relative;
+ 	list-style-type:none;
+    padding: 15px;
+}
+
+.ul__dom li .txt{
+	font-size:15px;
+    pointer-events:none;
+    z-index: -1;
+ }
+
+.ul__dom li .txt .txt2{
+	float: right;    
+    z-index: 10;
+}
+
+.ul__dom li div:nth-of-type(2) {
+	position: absolute;
+	top:16px;
+	right:10px;
+}
+/* 내용추가하기버튼 */
+.register .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+/* 관리버튼 톱니바퀴모양으로 */
+.txt2 a .material-symbols-outlined {    
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,   /*두께조절*/
+  'GRAD' 0,
+  'opsz' 24     /*사이즈 조절*/
+}
+.txt2 a .material-symbols-outlined:hover {
+	cursor : pointer;
+}

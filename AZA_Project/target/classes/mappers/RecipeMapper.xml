@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.RecipeDAO">
+<insert id="insertRecipe" parameterType="com.aza.myapp.domain.RecipeVO">
+	insert into recipe(writer, title, content, material, animal)
+	values(#{writer},#{title},#{content},#{material},#{animal})
+</insert>
+<select id="selectRecipeToplist" resultType="com.aza.myapp.domain.RecipeVO">
+	select *, (select count(*) from good where type='R' and good.post_no=recipe.no) as good_count
+	from recipe where is_del = "N" order by good_count desc limit 5
+</select>
+<select id="selectTotalRecipe" resultType="com.aza.myapp.domain.RecipeVO">
+	select *, (select count(*) from good where type='R' and good.post_no=recipe.no) as good_count
+	from recipe where is_del = "N"
+	<include refid="search"></include>
+	<include refid="animal"></include>
+	<include refid="arrange"></include>
+	limit #{pageStart}, #{qty}
+</select>
+
+<select id="selectRecipeByNo" parameterType="int" resultType="com.aza.myapp.domain.RecipeVO">
+	select * , (select count(*) from good where type='R' and good.post_no=recipe.no) as good_count
+	from recipe where no = #{no}
+</select>
+<select id="selectListSize" resultType="int">
+	select count(no) from recipe where is_del = "N" 
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+</select>
+<select id="selectDetailRecipe" parameterType="int" resultType="com.aza.myapp.domain.RecipeVO">
+	select * , (select count(*) from good where type='R' and good.post_no=recipe.no) as good_count
+	from recipe where no = #{no}
+</select>
+<update id="updateReadCount">
+	update recipe set read_count=read_count+1 where no=#{no}
+</update>
+<update id="updateRecipe">
+	update recipe set 
+	title=#{title}, animal=#{animal}, material=#{material},content=#{content}, post_date=now()
+	where no =#{no}
+</update>
+<update id="deleteRecipe">
+	update recipe set
+	is_del="Y"
+	where no=#{no}
+</update>
+<!-- 검색 -->
+	<sql id="search">
+		<if test="type != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "and " prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 'title'.toString()">title like concat('%',#{keyword},'%')</when>
+							<when test="type == 'content'.toString()">content like concat('%',#{keyword},'%')</when>
+							<when test="type == 'writer'.toString()">writer like concat('%',#{keyword},'%')</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<!-- 정렬 -->
+	<sql id="arrange">
+		<if test="arrange != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "order by " prefixOverrides="OR">
+				<foreach collection="arrangeToArray" item="arrange">
+					<trim prefix="OR">
+						<choose>
+							<when test="arrange == 'no'.toString()">no desc</when>
+							<when test="arrange == 'read_count'.toString()">read_count desc</when>
+							<when test="arrange == 'good_count'.toString()">
+								(select count(*) from good where type='R' and good.post_no=recipe.no) desc
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+		<if test="arrange == null || arrange == ''">order by no desc</if>
+	</sql>
+	
+	<!-- 동물 분류 -->
+	<sql id="animal">
+		<if test="animal != null">
+			<trim prefix = "and " prefixOverrides="OR">
+				<foreach collection="animalToArray" item="animal">
+					<trim prefix="OR">
+						<choose>
+							<when test="animal == '1'.toString()">animal like concat('%',1,'%')</when>
+							<when test="animal == '12'.toString()">(animal like concat('%',1,'%') or animal like concat('%',2,'%'))</when>
+							<when test="animal == '13'.toString()">(animal like concat('%',1,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '123'.toString()">(animal like concat('%',1,'%') or animal like concat('%',2,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '2'.toString()">animal like concat('%',2,'%')</when>
+							<when test="animal == '23'.toString()">(animal like concat('%',2,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '3'.toString()">animal like concat('%',3,'%')</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+
+</mapper>
+
+

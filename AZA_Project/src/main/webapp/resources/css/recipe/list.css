@@ -1,0 +1,194 @@
+*{
+    color: var(--black);
+}
+
+/* pageTitle */
+#pageTitle{
+    margin-top: 20px;
+    width: 100%;
+    height: 44px;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 44px;
+    
+    text-align: center;
+    
+    color: var(--black);
+    
+}
+
+/* toplist */
+#topListContainer{
+    width: 1140px;
+    height: 489px;
+    margin: 50px auto;
+}
+#topListTitle{
+    font-size: 25px;
+    float: left;
+    width: max-content;
+    height: 29px;
+    margin-bottom: 20px;
+}
+
+#topList>ul{
+    width: max-content;
+    height: 420px;
+    margin: 0 auto;
+    display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+#topList{
+	width: 1120px;
+    height: 420px;
+    margin: 0 auto;
+    overflow-x: auto ;
+    overflow-y: hidden;
+	
+}
+
+.topOne{
+	width: 282px;
+    height: 410px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#topList::-webkit-scrollbar{
+    height: 8px;
+    border-radius: 10px;
+}
+#topList::-webkit-scrollbar-thumb{
+    height: 50%;
+    background: #939191;   
+    border-radius: 10px;
+}
+#topList::-webkit-scrollbar-track{
+    background:#20202030;
+    border-radius: 10px;
+}
+
+
+/* recipeOne */
+.recipeOne{
+    width: 282px;
+    height: 410px;
+    /* border: 1px solid black; */
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.recipeOne>article{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    width: max-content;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    float: left;
+    margin-bottom: 8px;
+}
+
+.writer, .view, .registerDate{
+    width: max-content;
+    font-size: 16px;
+    color: var(--black);
+    float: left;
+    margin-bottom: 3px;
+
+}
+.goodCount{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+.goodCount>span{
+    font-size: 20px;
+}
+.goodCount>ion-icon{
+    color: red;
+    font-size: 36px;
+}
+.fileImg{
+    width: 282px;
+    height: 282px;
+    /* border: 1px solid black; */
+    position: relative;
+    border-radius: 10px;
+}
+.fileImg>img{
+    width: 282px;
+    height: 282px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.animal{
+    width: max-content;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    left: 5px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.697);
+    color: var(--black);
+    border-radius: 5px;
+    padding: 0 5px;
+}
+.recipeOneContent{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* totalList */
+#totalList{
+   	position: relative;
+	width: 100%;
+	margin-bottom:30px
+}
+
+#totalList>ul{
+  	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+/* paginationInsertBtn */
+.paginationInsertBtn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 140px;
+}
+.paginationInsertBtn>.insert{
+    display: block;
+    width: fit-content;
+}
+.paginationInsertBtn>.insert>.insertBtn{
+    position: relative;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.paginationInsertBtn>.insert>.insertBtn>ion-icon{
+    font-size: 40px;
+}
+

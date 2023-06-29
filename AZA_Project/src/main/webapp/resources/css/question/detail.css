@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#topInfo{
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid var(--lightGray);
+    padding: 20px;
+}
+#topInfo #title{
+    text-align: center;
+    font-size: 48px;
+    margin: 40px 0 20px 0;
+}
+
+#topInfo #topInfoInner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+#topInfo #topInfoInner > div{
+    /* .left, .right */
+    display: flex;
+}
+#topInfo #topInfoInner > .left > div{
+    margin-right: 20px;
+}
+#topInfo #topInfoInner .right > div{
+    /* .readCount .goodCount */
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+#topInfo #topInfoInner .right div span{
+    margin-left: 5px;
+}
+#topInfo #topInfoInner .right .goodCount ion-icon{
+    color: #f00;
+}
+
+#detailContent {
+	padding:20px;
+}

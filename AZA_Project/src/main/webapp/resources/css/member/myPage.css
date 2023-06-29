@@ -1,0 +1,92 @@
+.subTitle{
+    text-align: center;
+    padding: 20px;
+    font-size: 32px;
+    border-top: 1px solid var(--lightGray);
+}
+#memberInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750px;
+    margin: 0 auto;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+#memberInfo > #memberInfoText{
+	width: 500px;
+}
+#memberInfo > div > div, #memberInfo > .profileWrapper{
+    margin-bottom: 20px;
+}
+#memberInfoText > div.nickName input{
+    font-size: 24px;
+    border: 0;
+    border-radius: 10px;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid var(--lightGray);
+}
+#memberInfo > .buttons{
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+}
+#memberInfo > .buttons button,
+#memberInfo > .buttons a{
+    margin-right: 30px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--lightGray);
+    transition: all 0.2s linear;
+}
+#memberInfo > .buttons a:last-child{
+	margin-right: 0;
+}
+#memberInfo > .buttons a:hover{
+	background-color: var(--lightGray);
+}
+#memberInfo > .buttons button{
+    font-size: 24px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+#memberInfo > .buttons button:hover{
+	background-color: var(--lightGray);
+}
+
+#myList{}
+#myList #mySelect{
+    font-size: 24px;
+    margin-top: 20px;
+}
+#myList #mySelect div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#myList #mySelect div:last-child{
+    margin-bottom: 20px;
+}
+#myList #mySelect div a{
+    /* padding: 10px;
+    border: 2px solid var(--yellow);
+    border-radius: 10px; */
+    margin-right: 10px;
+    color: var(--lightGray);
+    transition: all 0.2s linear;
+}
+#myList #mySelect div a:hover{
+	color: var(--black);
+}
+#myList #mySelect div a.on{
+    color: var(--black);
+}
+#myList #notFoundBoard{
+	display: block;
+	text-align: center;
+	font-size: 24px;
+}

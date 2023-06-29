@@ -1,0 +1,14 @@
+.profileWrapper {
+	height: 180px;
+	display: flex;
+	justify-content: center;
+}
+.profileWrapper .profile {
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+	overflow: hidden;
+    line-height: 180px;
+    text-align: center;
+	object-fit: cover;
+}

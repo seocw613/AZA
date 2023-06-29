@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.aza.myapp.domain.MemberVO" alias="mvo"/>
+		<typeAlias type="com.aza.myapp.domain.CommunityVO" alias="CommunityVO"/>
+		<typeAlias type="com.aza.myapp.domain.CommentVO" alias="CommentVO"/>
+		<typeAlias type="com.aza.myapp.domain.GoodVO" alias="gvo"/>
+		<typeAlias type="com.aza.myapp.domain.MeetingVO" alias="MeetingVO"/>
+		<typeAlias type="com.aza.myapp.domain.MeetingMemberVO" alias="MeetingMemberVO"/>
+		<typeAlias type="com.aza.myapp.domain.HarmfulFoodVO" alias="hfvo"/>
+		<typeAlias type="com.aza.myapp.domain.BoastVO" alias="bvo"/>
+		<typeAlias type="com.aza.myapp.domain.QuestionVO" alias="qvo"/>
+		<typeAlias type="com.aza.myapp.domain.RecipeVO" alias="rvo"/>
+		<typeAlias type="com.aza.myapp.domain.AccomVO" alias="avo"/>
+		<typeAlias type="com.aza.myapp.domain.PhotoVO" alias="pvo"/>
+		<typeAlias type="com.aza.myapp.domain.ProfileVO" alias="pfvo"/>
+	</typeAliases>
+
+</configuration>

@@ -1,0 +1,54 @@
+section{
+}
+form{
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0,0,0, 0.1);
+    border-radius: 20px;
+}
+form input, form button{
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 0;
+}
+form div:first-child{
+    margin-top: 0;
+}
+form input{
+    width: 100%;
+    padding: 10px;
+}
+form button{
+    position: relative;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background: var(--yellow);
+}
+form span{
+    display: block;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: var(--black);
+}
+form .inputContainer{
+    position: relative;
+    margin-top: 20px;
+}
+form .inputContainer .inputStatus{
+    position: absolute;
+    right: 10px;
+    bottom: 50%;
+    transform: translateY(50%);
+	width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgb(187, 0, 0);
+}
+form .inputContainer .inputStatus.on{
+    background: rgb(0, 226, 0);
+}

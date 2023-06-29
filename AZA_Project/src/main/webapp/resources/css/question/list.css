@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#pageTitle h1 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 38px;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+	border-top: 2px solid #bcbaba;
+	border-bottom: 2px solid #bcbaba;
+	text-align: center;
+	border-collapse: collapse;
+	margin-bottom : 20px;
+}
+
+table thead tr th {
+	font-size: 20px;
+	border-bottom: 1px solid #bcbaba;
+	padding : 15px;
+	background-color: #efece4;  
+}
+
+table tbody tr td {
+	border-top: 0.5px solid #bcbaba;
+	border-bottom: 0.5px solid #bcbaba;
+	padding : 15px;
+}
+

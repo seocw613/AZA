@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.ScrapDAO">
+
+	<insert id="insert">
+		insert into scrap (type, post_no, member_id)
+		values (#{type}, #{post_no}, #{member_id});
+	</insert>
+	
+	<delete id="delete">
+		delete from scrap where
+		type=#{type} and
+		post_no=#{post_no} and
+		member_id=#{member_id};
+	</delete>
+	
+	<select id="isScrap" resultType="int">
+		select count(*) from scrap where
+		type=#{type} and
+		post_no=#{post_no} and
+		member_id=#{member_id};
+	</select>
+	
+	<select id="scrapCount" resultType="int">
+		select count(*) from scrap where type=#{type} and post_no=#{post_no};
+	</select>
+
+</mapper>

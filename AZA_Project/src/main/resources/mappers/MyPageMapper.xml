@@ -1,0 +1,580 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.MyPageDAO">
+	
+	<!-- community -->
+	<select id="communityMyBoard" resultType="CommunityVO">
+		select *,
+		(select count(*) from good
+		where type='C' and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=community.writer
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="communityMyBoardCount" resultType="int">
+		select count(*)
+		from community
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=community.writer
+		<include refid="search"></include>;
+	</select>
+	
+	<select id="communityMyGood" resultType="CommunityVO">
+		select *,
+		(select count(*) from good
+		where type="C" and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="C" and
+		post_no=community.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="arrange"></include>;
+	</select>
+	<select id="communityMyGoodCount" resultType="int">
+		select count(*)
+		from community
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="C" and
+		post_no=community.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>;
+	</select>
+	
+	<select id="communityMyScrap" resultType="CommunityVO">
+		select *,
+		(select count(*) from good
+		where type='C' and
+		good.post_no=community.no)
+		as good_count
+		from community
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="C" and
+		post_no=community.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="arrange"></include>;
+	</select>
+	<select id="communityMyScrapCount" resultType="int">
+		select count(*)
+		from community
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="C" and
+		post_no=community.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>;
+	</select>
+	
+	<!-- harmful food -->
+	<select id="harmfulFoodMyScrap" resultType="hfvo">
+		select *,
+		(select count(*) from good
+		where type='F' and
+		good.post_no=harmful_food.no)
+		as good_count
+		from harmful_food
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="F" and
+		post_no=harmful_food.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="harmfulFoodMyScrapCount" resultType="int">
+		select count(*)
+		from harmful_food
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="H" and
+		post_no=harmful_food.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+
+	<!-- boast -->
+	<select id="boastMyBoard" resultType="bvo">
+		select *,
+		(select count(*) from good
+		where type='B' and
+		good.post_no=boast.no)
+		as good_count
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=boast.writer
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="boastMyBoardCount" resultType="int">
+		select count(*)
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=boast.writer
+		<include refid="search"></include>;
+	</select>
+	
+	<select id="boastMyGood" resultType="bvo">
+		select *,
+		(select count(*) from good
+		where type="B" and
+		good.post_no=boast.no)
+		as good_count
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="B" and
+		post_no=boast.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="boastMyGoodCount" resultType="int">
+		select count(*)
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="B" and
+		post_no=boast.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>;
+	</select>
+	
+	<select id="boastMyScrap" resultType="bvo">
+		select *,
+		(select count(*) from good
+		where type='B' and
+		good.post_no=boast.no)
+		as good_count
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="B" and
+		post_no=boast.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="boastMyScrapCount" resultType="int">
+		select count(*)
+		from boast
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="B" and
+		post_no=boast.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>;
+	</select>
+	
+	<!-- accom -->
+	<select id="accomMyBoard" resultType="avo">
+		select *,
+		(select count(*) from good
+		where type='A' and
+		good.post_no=accom.no)
+		as good_count
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=accom.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="accomMyBoardCount" resultType="int">
+		select count(*)
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=accom.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="accomMyGood" resultType="avo">
+		select *,
+		(select count(*) from good
+		where type="A" and
+		good.post_no=accom.no)
+		as good_count
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="A" and
+		post_no=accom.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="accomMyGoodCount" resultType="int">
+		select count(*)
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="A" and
+		post_no=accom.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="accomMyScrap" resultType="avo">
+		select *,
+		(select count(*) from good
+		where type='A' and
+		good.post_no=accom.no)
+		as good_count
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="A" and
+		post_no=accom.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="accomMyScrapCount" resultType="int">
+		select count(*)
+		from accom
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="A" and
+		post_no=accom.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<!-- meeting -->
+	<select id="meetingMyBoard" resultType="MeetingVO">
+		select *,
+		(select count(*) from good
+		where type='M' and
+		good.post_no=meeting.no)
+		as good_count
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=meeting.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="meetingMyBoardCount" resultType="int">
+		select count(*)
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=meeting.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="meetingMyGood" resultType="MeetingVO">
+		select *,
+		(select count(*) from good
+		where type="M" and
+		good.post_no=meeting.no)
+		as good_count
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="M" and
+		post_no=meeting.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="meetingMyGoodCount" resultType="int">
+		select count(*)
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="M" and
+		post_no=meeting.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="meetingMyScrap" resultType="MeetingVO">
+		select *,
+		(select count(*) from good
+		where type='M' and
+		good.post_no=meeting.no)
+		as good_count
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="M" and
+		post_no=meeting.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="meetingMyScrapCount" resultType="int">
+		select count(*)
+		from meeting
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="M" and
+		post_no=meeting.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<!-- recipe -->
+	<select id="recipeMyBoard" resultType="rvo">
+		select *,
+		(select count(*) from good
+		where type="R" and
+		good.post_no=recipe.no)
+		as good_count
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=recipe.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="recipeMyBoardCount" resultType="int">
+		select count(*)
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=recipe.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="recipeMyGood" resultType="rvo">
+		select *,
+		(select count(*) from good
+		where type="R" and
+		good.post_no=recipe.no)
+		as good_count
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="R" and
+		post_no=recipe.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="recipeMyGoodCount" resultType="int">
+		select count(*)
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from good
+		where type="R" and
+		post_no=recipe.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<select id="recipeMyScrap" resultType="rvo">
+		select *,
+		(select count(*) from good
+		where type='R' and
+		good.post_no=recipe.no)
+		as good_count
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="R" and
+		post_no=recipe.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="recipeMyScrapCount" resultType="int">
+		select count(*)
+		from recipe
+		join member on
+		member.id=#{sessionID}
+		where 0 <![CDATA[<]]>
+		(select count(*) from scrap
+		where type="R" and
+		post_no=recipe.no and
+		member_id=#{sessionID})
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	<!-- question -->
+	<select id="questionMyBoard" resultType="qvo">
+		select *,
+		(select count(*) from good
+		where type='Q' and
+		good.post_no=question.no)
+		as good_count
+		from question
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=question.writer
+		<include refid="search"></include>
+		<include refid="arrange"></include>
+		limit #{pageStart}, #{qty};
+	</select>
+	<select id="questionMyBoardCount" resultType="int">
+		select count(*)
+		from question
+		join member on
+		member.id=#{sessionID}
+		where is_del="N" and
+		member.nick_name=question.writer
+		<include refid="search"></include>
+		<include refid="animal"></include>;
+	</select>
+	
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="type != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "and " prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 'title'.toString()">title like concat('%',#{keyword},'%')</when>
+							<when test="type == 'writer'.toString()">writer like concat('%',#{keyword},'%')</when>
+							<when test="type == 'content'.toString()">content like concat('%',#{keyword},'%')</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<!-- 정렬 -->
+	<sql id="arrange">
+		<if test="arrange != null"> <!-- pgvo에 type의 값이 있다면 -->
+			<trim prefix = "order by " prefixOverrides="OR">
+				<foreach collection="arrangeToArray" item="arrange">
+					<trim prefix="OR">
+						<choose>
+							<when test="arrange == 'no'.toString()">no desc</when>
+							<when test="arrange == 'read_count'.toString()">read_count desc</when>
+							<when test="arrange == 'good_count'.toString()">good_count desc</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+		<if test="arrange == null || arrange == ''">order by no desc</if>
+	</sql>
+	
+	<!-- 동물 분류 -->
+	<sql id="animal">
+		<if test="animal != null">
+			<trim prefix = "and " prefixOverrides="OR">
+				<foreach collection="animalToArray" item="animal">
+					<trim prefix="OR">
+						<choose>
+							<when test="animal == '1'.toString()">animal like concat('%',1,'%')</when>
+							<when test="animal == '12'.toString()">(animal like concat('%',1,'%') or animal like concat('%',2,'%'))</when>
+							<when test="animal == '13'.toString()">(animal like concat('%',1,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '123'.toString()">(animal like concat('%',1,'%') or animal like concat('%',2,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '2'.toString()">animal like concat('%',2,'%')</when>
+							<when test="animal == '23'.toString()">(animal like concat('%',2,'%') or animal like concat('%',3,'%'))</when>
+							<when test="animal == '3'.toString()">animal like concat('%',3,'%')</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+
+</mapper>

@@ -1,0 +1,108 @@
+/* totalList */
+#totalList{
+	position: relative;
+	width: 100%;
+	margin-bottom:30px;
+}
+#totalList ul{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+/* boastOne */
+.boastOne{
+    width: 282px;
+    height: 410px;
+    /* border: 1px solid black; */
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.boastOne > article{
+    width: 100%;
+    height: 100%;
+}
+.boastOne .title{
+    width: max-content;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    float: left;
+    margin-bottom: 8px;
+}
+
+.boastOne .writer, .boastOne .view, .boastOne .registerDate{
+    width: max-content;
+    font-size: 16px;
+    color: var(--black);
+    float: left;
+    margin-bottom: 3px;
+
+}
+.boastOne .goodCount{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+.boastOne .goodCount>span{
+    font-size: 20px;
+}
+.boastOne .goodCount>ion-icon{
+    color: red;
+    font-size: 36px;
+}
+.boastOne .fileImg{
+    width: 282px;
+    height: 282px;
+    /* border: 1px solid black; */
+    position: relative;
+    border-radius: 10px;
+}
+.boastOne .fileImg>img{
+    width: 282px;
+    height: 282px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.boastOne .boastOneContent{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+/* paginationInsertBtn */
+.paginationInsertBtn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 140px;
+}
+.paginationInsertBtn>.insert{
+    display: block;
+    width: fit-content;
+}
+.paginationInsertBtn>.insert>.insertBtn{
+    position: relative;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.paginationInsertBtn>.insert>.insertBtn>ion-icon{
+    font-size: 40px;
+}
+

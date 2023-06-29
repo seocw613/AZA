@@ -1,0 +1,100 @@
+@charset "UTF-8";
+.container .header h1{
+	margin-top: 20px;
+	margin-bottom:20px;
+  	font-size: 70px;
+	text-align: center;
+	
+}
+
+.dom .register {
+	float : right;
+	margin-top:18px;
+	margin-right: 90px;
+}
+
+.dom .register a{
+	font-size: 25px;
+}
+
+.btns__dom{
+	border-top : 2px solid #bcbaba;
+	border-bottom : 1px solid #bcbaba;
+}
+
+.btns__dom button {
+
+    position:relative;
+    left : 100px
+}
+
+.btns__dom button span{
+	pointer-events:none;
+	font-size:20px;	  
+    
+}
+
+/* .dom .fagImg {
+	float : left;
+	margin-left : 70px;
+} */
+.ul__dom {
+	margin-top: 10px;
+	
+}
+
+
+.ul__dom li{
+	border:1.5px solid #FAE100;
+	border-radius: 7px;
+	margin-bottom : 10px;
+}
+
+    /* 선택시 */
+    .ul__dom li.on{
+        background:#bdaf8f;
+        font-weight:bold;color:rgb(255, 253, 253);
+        color: #f7ca57;
+        text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+        box-shadow:inset .5rem .5rem 1rem #8d7e5d;
+    }
+    
+.dom ul li {
+ 	list-style-type:none;
+    padding: 15px;
+}
+
+
+.ul__dom li .txt{
+    position:relative;
+    pointer-events:none;
+    z-index: 1;
+    border-top: 1px solid #bcbaba;
+   
+}
+
+.ul__dom li .txt2{
+	position:relative;    
+    z-index: 10;
+}
+
+/* 내용추가하기버튼 */
+.register .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+/* 관리버튼 톱니바퀴모양으로 */
+.txt2 a .material-symbols-outlined {    
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,   /*두께조절*/
+  'GRAD' 0,
+  'opsz' 24     /*사이즈 조절*/
+}
+.txt2 a .material-symbols-outlined:hover {
+	cursor : pointer;
+}

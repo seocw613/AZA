@@ -1,0 +1,175 @@
+@charset "UTF-8";
+
+/* * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    width: 100%;
+    border: solid #5B6DCD 10px;
+    padding: 5px;
+} */
+
+li{
+    list-style-type:none; 
+}
+
+/* html,body{
+    display:flex;flex-flow:column nowrap;
+    justify-content:center;
+    align-items:center;
+    width:100%;min-height:100vh;
+    background:#ccc;
+}
+ 
+.dom{
+    position:relative;
+    width:100%;max-width:400px;
+    margin:1rem auto; padding:2rem; padding-top:0;
+    border:1px solid #d2d2d2;
+    background:whitesmoke;
+} 
+ */
+
+.btns__dom{
+
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    position:relative;
+    width:100%;    
+    padding:1em;
+
+}
+ 
+
+/* .btns__dom button{
+    display:block;
+    padding:.5em 2em; margin:5px;
+    background:rgb(33, 26, 92);
+    border:none;
+    color:whitesmoke;
+    cursor:pointer;
+}
+ 
+    .btns__dom button:hover{filter:brightness(200%);} */
+ 
+.btns__dom button span{pointer-events:none;}
+ 
+   /* .ul__dom{
+    position:relative; overflow-y:auto;
+    width:100%;aspect-ratio:1/2;
+    background:#eee;
+    border:1px solid #d2d2d2;
+    }  */
+ 
+    .ul__dom li{
+        margin-bottom: 10px;
+    }
+
+    /* 선택시 */
+    .ul__dom li.on{
+        background:#bdaf8f;
+        font-weight:bold;color:rgb(255, 253, 253);
+        color: #f7ca57;
+        text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+        box-shadow:inset .5rem .5rem 1rem #8d7e5d;
+    }
+
+    /* .ul__dom li.on{
+        background:cornflowerblue;
+        font-weight:bold;color:whitesmoke;
+        box-shadow:inset .5rem .5rem 1rem rgba(53, 56, 233, 0.5);
+    } */
+ 
+/* li button 영역 z-index 로 우선순위 주기 */
+.ul__dom li .txt{
+    position:relative;
+    pointer-events:none;
+    z-index: 1;
+    border-top: 1px solid black;
+   
+}
+
+.ul__dom li .txt2{
+    position:relative;
+    cursor:pointer;   
+    z-index: 10;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* 관리버튼 톱니바퀴모양으로 */
+.material-symbols-outlined {    
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,   /*두께조절*/
+  'GRAD' 0,
+  'opsz' 24     /*사이즈 조절*/
+}
+
+/* 아코디언 css */
+
+/* *{
+    box-sizing: border-box; 
+  }
+    
+  .que:first-child{
+      border-top: 1px solid black;
+    }
+    
+  .que{
+    position: relative;
+    padding: 17px 0;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #dddddd;
+    
+  }
+    
+  .que::before{
+    display: inline-block;
+    content: 'Q';
+    font-size: 14px;
+    color: #006633;
+    margin: 0 5px;
+  }
+  
+  .que.on>span{
+    font-weight: bold;
+    color: #006633; 
+  }
+    
+  .anw {
+    display: none;
+      overflow: hidden;
+    font-size: 14px;
+    background-color: #f4f4f2;
+    padding: 27px 0;
+  }
+    
+  .anw::before {
+    display: inline-block;
+    content: 'A';
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin: 0 5px;
+  }
+  
+  .arrow-wrap {
+    position: absolute;
+    top:50%; right: 10px;
+    transform: translate(0, -50%);
+  }
+  
+  .que .arrow-top {
+    display: none;
+  }
+  .que .arrow-bottom {
+    display: block;
+  }
+  .que.on .arrow-bottom {
+    display: none;
+  }
+  .que.on .arrow-top {
+    display: block; 
+  } */

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.aza.myapp.repository.FaqDAO">	<!-- dao 안쓰고 repository 값 여기서 전처리 -->
+    <insert id="insert">
+		insert into faq (title, content)
+		values (#{title}, #{content})
+		<!-- (from member where type = 'M') -->;
+	</insert>
+	<select id="list" resultType="com.aza.myapp.domain.FaqVO">
+		select * from faq	
+	</select>	
+	<select id="selectOne" resultType="com.aza.myapp.domain.FaqVO">
+		select * from faq where no=#{no}; <!-- and (from member where type = 'M') -->;
+	</select>
+	<update id="update">
+		update faq set title=#{title}, content=#{content} 
+		where no=#{no} <!-- and (from member where type = 'M') -->;
+	</update>	
+	<delete id="delete">
+		delete from faq where no=#{no} <!-- and (from member where type = 'M') -->;
+	</delete> 
+</mapper>

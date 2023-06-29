@@ -1,0 +1,41 @@
+@charset "UTF-8";
+.header h1 {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	font-size: 60px;
+	text-align: center;
+}
+
+#writer, #title, #content {
+	width: 100%;
+	font-size: 20px;
+	border : 1px solid #FAE100;
+	margin-bottom: 5px;
+	border-radius: 4px;
+} 
+
+#qpw1, #qpw2 {
+	border-radius: 4px;
+	margin-bottom: 5px;
+}
+
+.btn-zone {
+	text-align: center;	
+}
+
+.btn-zone button {
+	width: 90px;
+	height : 20px;
+	border: 0.1px solid #FAE100;
+	background-color: #FAE100;
+	border-radius: 7px;
+	font-size: 15px;
+}
+
+.form-check {
+	float : right;
+}
+
+.btn btn-outline-primary btn-block d-block {
+	margin-top: 15px;
+}

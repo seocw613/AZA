@@ -1,0 +1,132 @@
+*{
+    color: var(--black);
+}
+#pageTitle{
+    font-size: 38px;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+.animal, .topBox{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.animal{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.animal{
+    color: var(--gray);
+}
+.topBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#detailContainer>img{
+    width: 1200px;
+    height: 675px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+#material{
+    margin-top: 20px;
+    padding: 0 204px;
+    text-align: center;
+}
+#material>span{
+    font-size: 30px;
+}
+#material>#materialContent{
+    /* width: 792px; */
+    font-size: 20px;
+    word-break: break-all;
+    margin-top: 20px;
+}
+#contentList{
+    margin-top: 170px;
+    width: 100%;
+}
+#content{
+    width: 100%;
+    height: 61px;
+    font-size: 35px;
+    border-bottom: 1px solid var(--lightGray);
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.contentOne{
+    height: 282px;
+    width: 1160px;
+    margin: 0 20px;
+    margin-top:20px;
+    /* border: 1px solid black; */
+    position: relative;
+}
+.contentNum{
+	font-size: 25px;
+	color: var(--black);
+	width: 50px;
+	text-align: center;
+	height: max-content;
+	vertical-align: top;
+	float: left;
+	margin-left: 20px;
+}
+.recipeOne{
+    float: left;
+    width: 746px;
+    height: 206px;
+    font-size: 30px;
+    margin-right: 62px;
+    /* border: 1px solid black; */
+}
+li .photoBox{
+    display: inline-block;
+    width: 282px;
+    height: 282px;
+    
+    /* position: absolute;
+    top:0px;
+    right: 0px;
+    float: right;
+    border: 1px solid var(--black); */
+}
+.photoZone, .photoZone>div{
+    width: inherit;
+    height: inherit;
+}
+.photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+li .photoBox .photo{
+    margin-bottom: 0;
+}
+#goodUpdateDelBtn{
+    width: 1160px;
+    height: 61px;
+    margin-left: 20px;
+    margin-top: 80px;
+    /* border: 1px solid black; */
+}
+#updateDelBtn{
+    width: 200px;
+    float: right;
+}
+#delBtn{
+    border-left: 5px solid var(--gray);
+}
+#updateBtn, #delBtn{
+    width: max-content;
+    height: max-content;
+    font-size: 35px;
+    background-color: transparent;
+    color: var(--gray);
+    border: transparent;
+    padding: 0 10px;
+    cursor: pointer;
+}
+

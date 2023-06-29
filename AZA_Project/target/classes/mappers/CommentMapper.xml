@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.CommentDAO">
+
+	<insert id="insert">
+		insert into comment (type, post_no, writer, content)
+		values (#{type}, #{post_no}, #{writer}, #{content});
+	</insert>
+	
+	<select id="list" resultType="CommentVO">
+		select * from comment where post_no=#{post_no} and type=#{type};
+	</select>
+	
+	<select id="selectOne" resultType="CommentVO">
+		select * from comment where no=#{no};
+	</select>
+	
+	<update id="update">
+		update comment set content=#{content} where no=#{no};
+	</update>
+	
+	<delete id="delete">
+		delete from comment where no=#{no};
+	</delete>
+
+</mapper>

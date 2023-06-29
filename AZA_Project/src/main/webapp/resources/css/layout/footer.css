@@ -1,0 +1,48 @@
+footer{
+    width: 100%;
+    background: var(--ivory);
+    border: 1px solid var(--lightGray);
+    margin-top: 100px;
+    
+}
+#footerContainer{
+    width: 1200px;
+    /* border: 1px solid black; */
+    height: fit-content;
+    margin: 0 auto;
+
+}
+
+#footerContent{
+    margin: 20px auto;
+    width: 1200px;
+}
+#company{
+    color: var(--gray);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#companySpec{
+    width: 1200px;
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+#service{
+    width: 450px;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#serviceInfo{
+    font-size: 25px;
+    color: var(--gray);
+    
+}
+#serviceTime{
+    font-size: 15px;
+    color: var(--gray);
+}

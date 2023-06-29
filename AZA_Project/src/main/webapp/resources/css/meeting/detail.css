@@ -1,0 +1,94 @@
+.animal, .meetingDate{
+    text-align: center;
+}
+.animal{
+    margin-bottom: 5px;
+    color: var(--gray);
+}
+.meetingDate{
+    margin-bottom: 50px;
+}
+.topToContent{
+    margin-bottom: 20px;
+}
+.topBox{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.content{
+    font-size: 20px;
+    min-height: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#memberWrapper{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#memberWrapper #insertMemberBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+#memberWrapper #insertMemberBtn>ion-icon{
+    font-size: 100px;
+}
+.meetingTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#deleteMemberBtn{
+    width: 180px;
+    height: 50px;
+    background-color: var(--yellow);
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#memberWrapper *{
+	font-size: 20px;
+}
+.meetingLine{
+    margin-bottom: 10px;
+}
+.btnBox{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+.btn{
+    width: 78px;
+    height: 50px;
+    background-color: var(--yellow);
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.function{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.function>div{
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+}
+.function>div>div{
+    display: flex;
+    gap: 5px;
+    width: fit-content;
+}
+.fnBtn{
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+}

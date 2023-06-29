@@ -1,0 +1,87 @@
+/* 검색창 */
+#searchContainer{
+    margin-top: 40px;
+}
+
+/* 소제목 */
+.subTitle{
+	width: 100%;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 44px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* 커뮤니티 인기글 기간 선택 */
+#dateFilterContainer{
+    margin-bottom: 20px;
+}
+#dateFilterContainer ul{
+    display: flex;
+}
+#dateFilterContainer ul li{
+    margin-right: 20px;
+    position: relative;
+}
+#dateFilterContainer ul li:before{
+    position: absolute;
+    right: -11px;
+    top: 3px;
+    content: "";
+    display: block;
+    width: 2px;
+    height: 16px;
+    background: var(--lightGray);
+}
+#dateFilterContainer ul li:last-child:before{
+    display: none;
+}
+#dateFilterContainer ul li span{
+    font-size: 20px;
+    color: var(--lightGray);
+    cursor: pointer;
+}
+#dateFilterContainer ul li span.on{
+    color: var(--black);
+}
+
+/* 커뮤니티 인기글 */
+table#dateList{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+table#dateList tr{
+}
+table#dateList tr td{}
+table#dateList tr td:nth-child(2){
+	width: 400px;
+}
+table#dateList tr td:nth-child(3){
+	width: 200px;
+}
+table#dateList thead{
+    background: rgba(218, 218, 218, 0.3);
+}
+table#dateList thead tr{
+    height: 50px;
+}
+table#dateList thead tr th{
+    font-size: 24px;
+    font-weight: normal;
+}
+table#dateList tbody{}
+table#dateList tbody tr{
+    height: 40px;
+    border-bottom: 1px solid var(--lightGray);
+}
+table#dateList tbody tr td{
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+}
+table#dateList tbody tr td a{}
+table#dateList tbody tr td a:hover{
+    text-decoration: underline;
+}

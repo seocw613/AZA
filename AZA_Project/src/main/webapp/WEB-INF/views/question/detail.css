@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.header h1 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 60px;
+	text-align: center;
+	
+}
+
+.navLeft, .navRight {	
+	font-size : 20px;
+} 
+.navLeft {
+	float : left;
+}
+.navRight {
+	float : right;
+}
+
+.contentArea {
+	margin-top: 60px;
+	width: 100%;	
+}
+
+.txtArea {
+	padding: 15px;
+}
+.photoArea img{
+	margin: auto;
+	display: block;
+}
+
+.updelArea {
+ 	text-decoration: none;
+	float : right;
+	font-size : 20px;
+	color : #bcbaba;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#commentWrite {
+	border-top : 2px solid #bcbaba;
+}
+
+.lowBtnZone {
+	
+	margin: auto;
+	text-align: center;	
+}
+#listBtn {
+	width: 150px;
+	height : 30px;
+	border: 0.1px solid #FAE100;
+	background-color: #FAE100;
+	border-radius: 4px;
+	font-size: 20px;
+	cursor: pointer;
+}

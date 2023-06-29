@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* FAQ 버튼 CSS */
+
+/* 내용추가 버튼 css */
+
+
+/* 위+아래로 버튼 css */
+button {
+    margin: 10px;
+    outline: none;
+}
+  
+.custom-btn {
+    
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    border: 1px solid #000;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+/* 아래로 버튼 css */
+.btn-13 {
+    background: #f7ca57;
+    color: #000000;
+    z-index: 1;
+}
+.btn-13:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: var(--lightGray);
+    transition: all 0.3s ease;
+}
+.btn-13:hover {
+    color: #f7ca57;
+}
+.btn-13:hover:after {
+    top: 0;
+    height: 100%;
+}
+.btn-13:active {
+    top: 2px;
+}
+
+
+/* 위로 버튼 css */
+.btn-14 {
+    background: #f7ca57;
+    color: #000000;
+    z-index: 1;
+}
+.btn-14:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: var(--lightGray);
+    transition: all 0.3s ease;
+}
+.btn-14:hover {
+    color: #f7ca57;
+}
+.btn-14:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+.btn-14:active {
+    bottom: 2px;
+}

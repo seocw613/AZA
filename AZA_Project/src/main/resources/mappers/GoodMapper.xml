@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.aza.myapp.repository.GoodDAO">
+
+	<insert id="insert">
+		insert into good (type, post_no, member_id)
+		values (#{type}, #{post_no}, #{member_id});
+	</insert>
+	
+	<delete id="delete">
+		delete from good where
+		type=#{type} and
+		post_no=#{post_no} and
+		member_id=#{member_id};
+	</delete>
+	
+	<select id="isGood" resultType="int">
+		select count(*) from good where
+		type=#{type} and
+		post_no=#{post_no} and
+		member_id=#{member_id};
+	</select>
+	
+	<select id="goodCount" resultType="int">
+		select count(*) from good where type=#{type} and post_no=#{post_no};
+	</select>
+
+</mapper>
